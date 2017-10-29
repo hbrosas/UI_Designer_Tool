@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="basePane" prefHeight="512.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <SplitPane fx:id="splitPane" dividerPositions="0.29797979797979796" layoutX="-2.0" prefHeight="512.0" prefWidth="711.0">
+        <items>
+          <AnchorPane fx:id="settingsPane" minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="179.0">
+               <children>
+                  <Accordion fx:id="accordion" layoutX="3.0" layoutY="33.0" prefHeight="475.0" prefWidth="202.0">
+                    <panes>
+                      <TitledPane fx:id="actionPane" animated="false" text="Actions">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="addButtonBtn" layoutX="-4.0" mnemonicParsing="false" onAction="#addButton" prefHeight="39.0" prefWidth="208.0" text="Add Button" />
+                                    <Button fx:id="addLabelBtn" layoutX="-4.0" layoutY="39.0" mnemonicParsing="false" onAction="#addLabel" prefHeight="39.0" prefWidth="208.0" text="Add Label" />
+                                    <Button fx:id="addTxtFldBtn" layoutX="-4.0" layoutY="78.0" mnemonicParsing="false" onAction="#addTextField" prefHeight="39.0" prefWidth="208.0" text="Add Text Field" />
+                                    <Button fx:id="clearBtn" layoutX="-4.0" layoutY="117.0" mnemonicParsing="false" onAction="#clearScreen" prefHeight="39.0" prefWidth="208.0" text="Clear Screen" />
+                                    <Button fx:id="renderBtn" layoutX="-4.0" layoutY="156.0" mnemonicParsing="false" onAction="#renderDesign" prefHeight="39.0" prefWidth="208.0" text="Render Design" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane fx:id="Layout" animated="false" prefHeight="425.0" prefWidth="209.0" text="Layout">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="15.0" layoutY="65.0" text="Text" />
+                                    <TextField fx:id="textTF" layoutX="15.0" layoutY="82.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <Label layoutX="15.0" layoutY="113.0" text="Width" />
+                                    <TextField fx:id="widthTF" layoutX="15.0" layoutY="130.0" prefHeight="25.0" prefWidth="72.0" />
+                                    <Label layoutX="112.0" layoutY="113.0" text="Height" />
+                                    <TextField fx:id="heightTF" layoutX="112.0" layoutY="130.0" prefHeight="25.0" prefWidth="72.0" />
+                                    <Button fx:id="updateBtn" layoutX="17.0" layoutY="169.0" mnemonicParsing="false" onAction="#updateLayout" prefHeight="37.0" prefWidth="168.0" text="Update Layout" />
+                                    <Label layoutX="17.0" layoutY="14.0" text="Target Component" />
+                                    <TextField fx:id="tcField" editable="false" layoutX="15.0" layoutY="31.0" prefHeight="25.0" prefWidth="171.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+                  <Label fx:id="label" layoutX="14.0" layoutY="6.0" prefHeight="25.0" prefWidth="184.0" text="Incognito Builder" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Bebas" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="canvasPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ScrollPane fx:id="scrollPane" layoutX="-7.0" layoutY="-1.0" prefHeight="510.0" prefWidth="503.0">
+                    <content>
+                      <AnchorPane fx:id="canvas" minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="501.0">
+                           <children>
+                              <TextArea fx:id="rcTextArea" layoutX="14.0" layoutY="27.0" prefHeight="475.0" prefWidth="469.0" promptText="The code will be in here" wrapText="true" />
+                              <Label fx:id="rcLbl" layoutX="14.0" layoutY="6.0" text="Rendered Code" />
+                              <Pane fx:id="workspace" layoutX="6.0" layoutY="6.0" prefHeight="510.0" prefWidth="495.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
