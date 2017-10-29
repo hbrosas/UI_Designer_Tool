@@ -21,13 +21,28 @@ public class JSONRenderer {
 	public String render() {
 		String code = "";
 		
-		// Add {
 		code += "{\n";
-		code += renderButtons();
-		code += renderLabels();
-		code += renderTextFields();
-		// Add }
+		
+		if(buttons.size() != 0) {
+			code += "\t \"buttons\" : [\n";
+			code += renderButtons();
+			code += "\t]\n";
+		}
+		
+		if(labels.size() != 0) {
+			code += ",\t \"label\" : [\n";
+			code += renderLabels();
+			code += "\t]\n";
+		}
+		
+		if(textFields.size() != 0) {
+			code += ",\t \"textfield\" : [\n";
+			code += renderTextFields();
+			code += "\t]\n";
+		}
+		
 		code += "}";
+		
 		return code;
 	}
 	
@@ -44,12 +59,11 @@ public class JSONRenderer {
 	        int height = (int) screenBounds.getHeight();
 			
 			code += "\t{\n";
-			code += "\t\t 'type' : 'button',\n";
-			code += "\t\t 'text' : '"+ btn.getText() +"',\n";
-			code += "\t\t 'width' : "+ width +",\n";
-			code += "\t\t 'height' : "+ height +",\n";
-			code += "\t\t 'xPos' : "+ x +",\n";
-			code += "\t\t 'yPos' : "+ y +"\n";
+			code += "\t\t \"text\" : \""+ btn.getText() +"\",\n";
+			code += "\t\t \"width\" : "+ width +",\n";
+			code += "\t\t \"height\" : "+ height +",\n";
+			code += "\t\t \"xPos\" : "+ x +",\n";
+			code += "\t\t \"yPos\" : "+ y +"\n";
 			code += "\t}";
 			if(!(i == buttons.size()-1)) code += ",";
 			code += "\n";
@@ -70,13 +84,12 @@ public class JSONRenderer {
 	        int width = (int) screenBounds.getWidth();
 	        int height = (int) screenBounds.getHeight();
 			
-			code += "\t{\n";
-			code += "\t\t 'type' : 'label',\n";
-			code += "\t\t 'text' : '"+ lbl.getText() +"',\n";
-			code += "\t\t 'width' : "+ width +",\n";
-			code += "\t\t 'height' : "+ height +",\n";
-			code += "\t\t 'xPos' : "+ x +",\n";
-			code += "\t\t 'yPos' : "+ y +"\n";
+	        code += "\t{\n";
+			code += "\t\t \"text\" : \""+ lbl.getText() +"\",\n";
+			code += "\t\t \"width\" : "+ width +",\n";
+			code += "\t\t \"height\" : "+ height +",\n";
+			code += "\t\t \"xPos\" : "+ x +",\n";
+			code += "\t\t \"yPos\" : "+ y +"\n";
 			code += "\t}";
 			if(!(i == labels.size()-1)) code += ",";
 			code += "\n";
@@ -97,13 +110,12 @@ public class JSONRenderer {
 	        int width = (int) screenBounds.getWidth();
 	        int height = (int) screenBounds.getHeight();
 			
-			code += "\t{\n";
-			code += "\t\t 'type' : 'textfield',\n";
-			code += "\t\t 'text' : '"+ tf.getPromptText() +"',\n";
-			code += "\t\t 'width' : "+ width +",\n";
-			code += "\t\t 'height' : "+ height +",\n";
-			code += "\t\t 'xPos' : "+ x +",\n";
-			code += "\t\t 'yPos' : "+ y +"\n";
+	        code += "\t{\n";
+			code += "\t\t \"text\" : \""+ tf.getPromptText() +"\",\n";
+			code += "\t\t \"width\" : "+ width +",\n";
+			code += "\t\t \"height\" : "+ height +",\n";
+			code += "\t\t \"xPos\" : "+ x +",\n";
+			code += "\t\t \"yPos\" : "+ y +"\n";
 			code += "\t}";
 			if(!(i == textFields.size()-1)) code += ",";
 			code += "\n";
